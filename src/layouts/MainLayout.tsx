@@ -9,8 +9,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="min-w-screen min-h-screen flex flex-col">
       <NavBar />
-        <main className="flex-1">{children}</main>
-      <Footer />
+      <main className="flex-1 overflow-y-auto">
+        {children} <Footer />
+      </main>
     </div>
   );
 };
