@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div className="bg-gray-50 items-center flex justify-center">
-      <p className="bg-gray-50 text-center leading-loose w-auto text-2xl tracking-wide p-20">
+      <p className="text-center leading-loose w-auto text-2xl tracking-wide p-24">
         Are you tired of the <span className="text-primary">hassle</span> and{" "}
         <span className="text-primary">inconvenience</span> of traditional rent
         payment methods? Are you looking for an easier, more efficient way to
