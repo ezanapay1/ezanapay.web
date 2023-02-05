@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="bg-gray-50 items-center flex justify-center">
+    <div className="bg-primary/5 items-center flex justify-center">
       <p className="text-center leading-loose w-auto text-2xl tracking-wide p-24">
         Are you tired of the <span className="text-primary">hassle</span> and{" "}
         <span className="text-primary">inconvenience</span> of traditional rent

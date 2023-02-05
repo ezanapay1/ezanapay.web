@@ -26,7 +26,7 @@ const Features = () => {
     <div className="p-20 flex justify-around">
       {features.map((feature) => (
         <div
-          className="flex flex-col items-center space-y-3 bg-primary/10 rounded-md p-5 hover:scale-150 transform ease-in-out duration-300"
+          className="flex flex-col items-center space-y-3 bg-primary/20 rounded-md p-5 hover:scale-150 transform ease-in-out duration-300"
           key={feature.id}
         >
           <img src={feature.image} alt="features" className="h-10 w-10" />

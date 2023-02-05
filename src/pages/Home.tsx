@@ -1,5 +1,5 @@
 import React from "react";
-import { About, Features, Hero } from "../components";
+import { About, CallToAction, Features, Hero } from "../components";
 import { MainLayout } from "../layouts";
 
 const HomePage = () => {
@@ -8,6 +8,7 @@ const HomePage = () => {
       <Hero />
       <About />
       <Features />
+      <CallToAction />
     </MainLayout>
   );
 };
