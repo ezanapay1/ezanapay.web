@@ -22,10 +22,21 @@ const features = [
 ];
 
 const Features = () => {
-  return <div className="p-20"
-  >
-    
-  </div>;
+  return (
+    <div className="p-20 flex justify-around">
+      {features.map((feature) => (
+        <div
+          className="flex flex-col items-center space-y-3 bg-primary/10 rounded-md p-5 hover:scale-150 transform ease-in-out"
+          key={feature.id}
+        >
+          <img src={feature.image} alt="features" className="h-10 w-10" />
+          <h1 className="w-48 font-bold text-lg text-center">
+            {feature.title}
+          </h1>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Features;
