@@ -11,7 +11,7 @@ const SideBar = () => {
                 <li  className='bg-gray-200 p-2 rounded-md flex items-center text-sm font-semibold space-x-3'><HomeModernIcon className='h-8 text-primary' /><Link to="/properties"> My Properties</Link></li>
                 <li  className='bg-gray-200 p-2 rounded-md flex items-center text-sm font-semibold space-x-3'><UserGroupIcon className='h-8 text-primary' /><Link to="/tenants"> My Tenants</Link></li>
                 <li  className='bg-gray-200 p-2 rounded-md flex items-center text-sm font-semibold space-x-3'><DocumentDuplicateIcon className='h-8 text-primary' /><Link to="/billing"> Billing</Link></li>
-                <li  className='bg-gray-200 p-2 rounded-md flex items-center text-sm font-semibold space-x-3'><WalletIcon className='h-8 text-primary' /><Link to="/dashboard"> My Wallet</Link></li>
+                <li  className='bg-gray-200 p-2 rounded-md flex items-center text-sm font-semibold space-x-3'><WalletIcon className='h-8 text-primary' /><Link to="/wallet"> My Wallet</Link></li>
             </ul>
 
             <div className='flex items-center justify-center space-x-1'>

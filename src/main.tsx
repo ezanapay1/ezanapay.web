@@ -4,7 +4,7 @@ import { App } from './components'
 import './styles/index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom" 
 import Root from './routes/Home'
-import { Billing, Homepage, LandlordProfile, PropertyListing, TenantsListing } from './routes'
+import { Billing, Homepage, LandlordProfile, PropertyListing, TenantsListing, Wallet } from './routes'
 import ErrorPage from './error'
 import Dashboard from './routes/Landlords/Dashboard'
 
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/billing",
     element: <Billing />
+  },
+  {
+    path: "/wallet",
+    element: <Wallet />
   }
 ])
 
