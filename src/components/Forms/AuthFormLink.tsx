@@ -1,3 +1,6 @@
+import { HomeIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+
 interface AuthFormLinkProps {
     text: string;
     onClick?: () => void;
@@ -5,7 +8,8 @@ interface AuthFormLinkProps {
   
   const AuthFormLink = ({ text, onClick }: AuthFormLinkProps) => {
     return (
-      <div className="mt-2 text-sm space-x-2">
+      <div className="mt-5 text-sm items-center  flex justify-between">
+        <div className="space-x-2">
         <span className="text-gray-600">{text}</span>
         {onClick && (
           <button
@@ -17,6 +21,8 @@ interface AuthFormLinkProps {
             Click here
           </button>
         )}
+        </div>
+        <Link to="/"><HomeIcon className='h-6 text-primary' /></Link>
       </div>
     );
   };

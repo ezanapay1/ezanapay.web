@@ -35,7 +35,9 @@ const AuthPage = () => {
                           formTitle="Login"
                           submitButtonText="Login"
                           alternativeLinkText="Don't have an account?"
-                          onAlternativeLinkClick={handleAlternativeLinkClick} alternativeLink={''} authRoute={''}            />
+                          onAlternativeLinkClick={handleAlternativeLinkClick} alternativeLink={''} authRoute={''}            
+                          isLogin={true}
+                          />
           ) : (
             <AuthForm
                               onSubmit={handleFormSubmit}
@@ -43,7 +45,9 @@ const AuthPage = () => {
                               formTitle="Register"
                               submitButtonText="Register"
                               alternativeLinkText="Already have an account?"
-                              onAlternativeLinkClick={handleAlternativeLinkClick} alternativeLink={''} authRoute={''}            />
+                              onAlternativeLinkClick={handleAlternativeLinkClick} alternativeLink={''} authRoute={''}      
+                                isLogin={false}
+                              />
           )}
         </div>
       </div>
