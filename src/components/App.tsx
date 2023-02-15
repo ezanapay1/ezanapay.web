@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Homepage } from "../pages";
+import { Homepage } from "../routes";
 
 function App() {
   return <div className="App">

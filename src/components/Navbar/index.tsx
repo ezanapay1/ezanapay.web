@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.png"
 
 const NavBar = () => {
@@ -9,11 +10,11 @@ const NavBar = () => {
       </div>
       <div className="space-x-3">
         <button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading">
-          Landlords
+          <Link to={"/dashboard"}>Landlords</Link>
         </button>
-        <button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading">
+        {/* <button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading">
           Tenants
-        </button>
+        </button> */}
       </div>
     </div>
   );

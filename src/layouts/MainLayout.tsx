@@ -10,7 +10,8 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     <div className="min-w-screen min-h-screen flex flex-col">
       <NavBar />
       <main className="flex-1 overflow-y-auto">
-        {children} <Footer />
+        {children}
+         <Footer />
       </main>
     </div>
   );
