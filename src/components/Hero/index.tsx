@@ -20,6 +20,7 @@ const Hero = () => {
           <img
             src={HeroImg}
             alt="Woman with Keys"
+            style={{ objectFit: "cover" }}
             className="relative h-full w-full rounded-full"
           />
         </div>

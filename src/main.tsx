@@ -4,15 +4,21 @@ import { App } from './components'
 import './styles/index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom" 
 import Root from './routes/Home'
-import { Billing, Homepage, LandlordProfile, PropertyListing, TenantsListing, Wallet } from './routes'
+import { AuthPage, Billing, Homepage, LandlordProfile, PropertyListing, TenantsListing, Wallet } from './routes'
 import ErrorPage from './error'
 import Dashboard from './routes/Landlords/Dashboard'
+import { store } from './store'
+import { Provider } from 'react-redux'
 
 const router = createBrowserRouter([
   {
       path: "/",
       element: <Homepage />,
       errorElement: <ErrorPage />,
+  },
+  {
+      path: "/auth",
+      element: <AuthPage authAction={'login'} />,
   },
   {
       path: "/dashboard",
@@ -43,6 +49,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )
