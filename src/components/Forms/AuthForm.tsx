@@ -21,6 +21,7 @@ interface AuthFormProps {
 interface FormValues {
   email: string;
   password: string;
+  service: string
 }
 
 
