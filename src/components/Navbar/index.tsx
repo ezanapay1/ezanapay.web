@@ -10,11 +10,11 @@ const NavBar = () => {
       </div>
       <div className="space-x-3">
         <button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading">
-          <Link to={"/auth"}>Landlords</Link>
+          <Link to={"/auth"}>Login</Link>
         </button>
-        {/* <button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading">
-          Tenants
-        </button> */}
+        <button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading">
+          <Link to="/auth">Sign Up</Link>
+        </button>
       </div>
     </div>
   );
