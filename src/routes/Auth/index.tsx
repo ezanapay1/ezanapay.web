@@ -1,9 +1,15 @@
-import { useState } from 'react';
-import AuthForm from '../../components/Forms/AuthForm';
+import { useState } from "react";
+import AuthForm from "../../components/Forms/AuthForm";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { BASE_URL } from "../../constants";
 
 interface FormValues {
-  email: string;
+  firstName: string;
+  lastName: string;
   password: string;
+  email: string;
+  role: string;
 }
 
 const AuthPage = () => {
@@ -12,13 +18,37 @@ const AuthPage = () => {
   const [showLogin, setShowLogin] = useState(true);
 
   const handleFormSubmit = async (data: FormValues) => {
-    // You can use the `data` object to send a login or signup request to your API
-    // You can also set the `submitting` state to `true` while the request is being processed
-    // and then set it back to `false` once the request has completed
-
-    // For demonstration purposes, we'll just log the `data` object to the console
-    console.log(data);
+    setSubmitting(true);
+    setSubmitError(null);
+  
+    try {
+      let response;
+      if (showLogin) {
+        response = await axios.post(`${BASE_URL}/api/user/login`, {
+          email: data.email,
+          password: data.password,
+        });
+        toast.success("Login successful!");
+      } else {
+        response = await axios.post(`${BASE_URL}/api/user`, {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          password: data.password,
+          role: data.role,
+        });
+        toast.success("Signup successful!");
+      }
+      console.log(response.data);
+    } catch (error: any) {
+      console.error(error);
+      toast.error("Authentication failed. Please try again.");
+      setSubmitError(error.response?.data?.message ?? "Authentication failed. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
+  
 
   const handleAlternativeLinkClick = () => {
     setShowLogin(!showLogin);
@@ -30,24 +60,28 @@ const AuthPage = () => {
         <div className="bg-white p-6 rounded-md">
           {showLogin ? (
             <AuthForm
-                          onSubmit={handleFormSubmit}
-                          submitting={submitting}
-                          formTitle="Login"
-                          submitButtonText="Login"
-                          alternativeLinkText="Don't have an account?"
-                          onAlternativeLinkClick={handleAlternativeLinkClick} alternativeLink={''} authRoute={''}            
-                          isLogin={true}
-                          />
+              onSubmit={handleFormSubmit}
+              submitting={submitting}
+              formTitle="Login"
+              submitButtonText="Login"
+              alternativeLinkText="Don't have an account?"
+              onAlternativeLinkClick={handleAlternativeLinkClick}
+              alternativeLink={""}
+              authRoute={""}
+              isLogin={true}
+            />
           ) : (
             <AuthForm
-                              onSubmit={handleFormSubmit}
-                              submitting={submitting}
-                              formTitle="Register"
-                              submitButtonText="Register"
-                              alternativeLinkText="Already have an account?"
-                              onAlternativeLinkClick={handleAlternativeLinkClick} alternativeLink={''} authRoute={''}      
-                                isLogin={false}
-                              />
+              onSubmit={handleFormSubmit}
+              submitting={submitting}
+              formTitle="Register"
+              submitButtonText="Register"
+              alternativeLinkText="Already have an account?"
+              onAlternativeLinkClick={handleAlternativeLinkClick}
+              alternativeLink={""}
+              authRoute={""}
+              isLogin={false}
+            />
           )}
         </div>
       </div>
