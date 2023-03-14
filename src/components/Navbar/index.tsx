@@ -29,7 +29,7 @@ import {
   IconCoin,
   IconChevronDown,
 } from '@tabler/icons-react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -128,6 +128,8 @@ export function NavBar() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const { classes, theme } = useStyles();
+
+  const navigate = useNavigate();
 
   const links = mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
@@ -259,8 +261,8 @@ export function NavBar() {
 
           <Group position="center" grow pb="xl" px="md">
             <Button variant="default">Log in</Button>
-            <Button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-md tracking-wide leading" onClick={() => <Navigate to="/auth" replace={true} />}>
-            <Link to="/auth">Sign Up</Link>
+            <Button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-md tracking-wide leading" onClick={(e) => {navigate('/auth')}}>
+            Sign Up
             </Button>
           </Group>
         </ScrollArea>

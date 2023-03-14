@@ -13,7 +13,7 @@ import {
   TenantsListing,
   Wallet,
 } from "./routes";
-import ErrorPage from "./error";
+import {ErrorPage} from "./error";
 import Dashboard from "./routes/Landlords/Dashboard";
 import { store } from "./store";
 import { Provider } from "react-redux";
