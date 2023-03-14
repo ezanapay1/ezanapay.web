@@ -11,7 +11,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <NavBar />
       <main className="flex-1 overflow-y-auto">
         {children}
-         <Footer />
+         <Footer data={[]} />
       </main>
     </div>
   );
