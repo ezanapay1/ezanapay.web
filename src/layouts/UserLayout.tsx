@@ -2,16 +2,14 @@ import React, { ReactNode } from 'react';
 import { SideBar } from '../components';
 
 type UserLayoutProps = {
-    children: ReactNode 
-}
+	children: ReactNode;
+};
 
-const UserLayout = ({children}: UserLayoutProps) => {
+const UserLayout = ({ children }: UserLayoutProps) => {
 	return (
-		<div className='flex'>
+		<div className="flex">
 			<SideBar />
-			<div className='flex-1 p-10'>
-				{children}    
-			</div>    
+			<div className="flex-1 p-10">{children}</div>
 		</div>
 	);
 };

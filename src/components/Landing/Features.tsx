@@ -19,20 +19,17 @@ import Property from '../../assets/features/property.png';
 const mockdata = [
 	{
 		title: 'Simple Property Listing',
-		description:
-      '',
+		description: '',
 		icon: Property,
 	},
 	{
 		title: 'Automated Receipts and Invoices',
-		description:
-      '',
+		description: '',
 		icon: Bill,
 	},
 	{
 		title: 'Payment Process and Reconciliation',
-		description:
-      '',
+		description: '',
 		icon: Property,
 	},
 ];
@@ -65,7 +62,9 @@ const useStyles = createStyles((theme) => ({
 
 	card: {
 		border: `${rem(1)} solid ${
-			theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
+			theme.colorScheme === 'dark'
+				? theme.colors.dark[5]
+				: theme.colors.gray[1]
 		}`,
 	},
 
@@ -84,7 +83,12 @@ const useStyles = createStyles((theme) => ({
 export function Features() {
 	const { classes, theme } = useStyles();
 	const features = mockdata.map((feature) => (
-		<Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
+		<Card
+			key={feature.title}
+			shadow="md"
+			radius="md"
+			className={classes.card}
+			padding="xl">
 			<img src={feature.icon} alt="features" className="h-10 w-10" />
 			{/* <feature.icon size={rem(50)} stroke={2} color={theme.fn.primaryColor()} /> */}
 			<Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
@@ -99,20 +103,28 @@ export function Features() {
 	return (
 		<Container size="lg" py="xl">
 			<Group position="center">
-				<Badge variant="filled" size="lg" className='bg-primary'>
-          The best software
+				<Badge variant="filled" size="lg" className="bg-primary">
+					The best software
 				</Badge>
 			</Group>
 
 			<Title order={2} className={classes.title} ta="center" mt="sm">
-         Manage your properties with ease
+				Manage your properties with ease
 			</Title>
 
-			<Text c="dimmed" className={classes.description} ta="center" mt="md">
-        We provide the best tech to help you manage your properties
+			<Text
+				c="dimmed"
+				className={classes.description}
+				ta="center"
+				mt="md">
+				We provide the best tech to help you manage your properties
 			</Text>
 
-			<SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+			<SimpleGrid
+				cols={3}
+				spacing="xl"
+				mt={50}
+				breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
 				{features}
 			</SimpleGrid>
 		</Container>

@@ -1,5 +1,11 @@
-
-import { createStyles, Container, Title, Text, Button, rem } from '@mantine/core';
+import {
+	createStyles,
+	Container,
+	Title,
+	Text,
+	Button,
+	rem,
+} from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
 	root: {
@@ -7,7 +13,7 @@ const useStyles = createStyles((theme) => ({
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 		backgroundImage:
-      'linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(../../assets/hero.jpg)',
+			'linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(../../assets/hero.jpg)',
 		paddingTop: `calc(${theme.spacing.xl} * 3)`,
 		paddingBottom: `calc(${theme.spacing.xl} * 3)`,
 	},
@@ -82,20 +88,20 @@ export function Hero() {
 				<div className={classes.inner}>
 					<div className={classes.content}>
 						<Title className={classes.title}>
-              Your{' '}
+							Your{' '}
 							<Text
 								component="span"
 								inherit
 								variant="gradient"
-								gradient={{ from: 'green', to: 'lime' }}
-							>
-                Rent 
+								gradient={{ from: 'green', to: 'lime' }}>
+								Rent
 							</Text>{' '}
-              Partner
+							Partner
 						</Title>
 
 						<Text className={classes.description} mt={30}>
-              	EzanaPay helps you pay rent faster, flexibly and on time.
+							EzanaPay helps you pay rent faster, flexibly and on
+							time.
 						</Text>
 
 						<Button
@@ -103,9 +109,8 @@ export function Hero() {
 							gradient={{ from: 'pink', to: 'yellow' }}
 							size="xl"
 							className={`${classes.control} bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading`}
-							mt={40}
-						>
-              Get started
+							mt={40}>
+							Get started
 						</Button>
 					</div>
 				</div>

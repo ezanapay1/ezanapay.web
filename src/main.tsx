@@ -16,7 +16,7 @@ import {
 	Wallet,
 	VerifyEmail,
 } from './routes';
-import {ErrorPage} from './error';
+import { ErrorPage } from './error';
 import Dashboard from './routes/Landlords/Dashboard';
 import { Provider } from 'react-redux';
 
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/verify-email',
-		element: <VerifyEmail />
+		element: <VerifyEmail />,
 	},
 	{
 		path: '/login',
@@ -72,12 +72,15 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<MantineProvider theme={{
-				// colors: {
-				//   brand: ['#FFC107', '#FFC107', '#FFC107', '#FFC107', '#FFC107']
-				// },
-				// primaryColor: "brand",
-			}}>
+			<MantineProvider
+				theme={
+					{
+						// colors: {
+						//   brand: ['#FFC107', '#FFC107', '#FFC107', '#FFC107', '#FFC107']
+						// },
+						// primaryColor: "brand",
+					}
+				}>
 				<RouterProvider router={router} />
 				<ToastContainer />
 			</MantineProvider>

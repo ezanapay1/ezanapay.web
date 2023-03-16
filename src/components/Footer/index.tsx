@@ -1,18 +1,30 @@
-import { createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/core';
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
+import {
+	createStyles,
+	Text,
+	Container,
+	ActionIcon,
+	Group,
+	rem,
+} from '@mantine/core';
+import {
+	IconBrandTwitter,
+	IconBrandYoutube,
+	IconBrandInstagram,
+} from '@tabler/icons-react';
 // import { MantineLogo } from '@mantine/ds';
 import Logo from '../../assets/logo.png';
-
-
 
 const useStyles = createStyles((theme) => ({
 	footer: {
 		marginTop: rem(120),
 		paddingTop: `calc(${theme.spacing.xl} * 2)`,
 		paddingBottom: `calc(${theme.spacing.xl} * 2)`,
-		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : '#041141',
+		backgroundColor:
+			theme.colorScheme === 'dark' ? theme.colors.dark[6] : '#041141',
 		borderTop: `${rem(1)} solid ${
-			theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+			theme.colorScheme === 'dark'
+				? theme.colors.dark[5]
+				: theme.colors.gray[2]
 		}`,
 	},
 
@@ -60,7 +72,10 @@ const useStyles = createStyles((theme) => ({
 
 	link: {
 		display: 'block',
-		color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.white,
+		color:
+			theme.colorScheme === 'dark'
+				? theme.colors.dark[1]
+				: theme.colors.white,
 		fontSize: theme.fontSizes.sm,
 		paddingTop: rem(3),
 		paddingBottom: rem(3),
@@ -86,7 +101,9 @@ const useStyles = createStyles((theme) => ({
 		paddingTop: theme.spacing.xl,
 		paddingBottom: theme.spacing.xl,
 		borderTop: `${rem(1)} solid ${
-			theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
+			theme.colorScheme === 'dark'
+				? theme.colors.dark[4]
+				: theme.colors.gray[2]
 		}`,
 
 		[theme.fn.smallerThan('sm')]: {
@@ -102,10 +119,10 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface FooterLinksProps {
-  data: {
-    title: string;
-    links: { label: string; link: string }[];
-  }[];
+	data: {
+		title: string;
+		links: { label: string; link: string }[];
+	}[];
 }
 
 export function Footer({ data }: FooterLinksProps) {
@@ -118,8 +135,7 @@ export function Footer({ data }: FooterLinksProps) {
 				className={classes.link}
 				component="a"
 				href={link.link}
-				onClick={(event) => event.preventDefault()}
-			>
+				onClick={(event) => event.preventDefault()}>
 				{link.label}
 			</Text>
 		));
@@ -140,20 +156,27 @@ export function Footer({ data }: FooterLinksProps) {
 					<div>
 						<img src={Logo} alt="logo" className="h-10" />
 					</div>
-					<Text size="xs" color="dimmed" className={classes.description}>
-          Experience a fast and seamless rent payment process. Direct
-             Intergration with Mobile Money, automated invoices, Rental credit
-             Score and Building transparency
+					<Text
+						size="xs"
+						color="dimmed"
+						className={classes.description}>
+						Experience a fast and seamless rent payment process.
+						Direct Intergration with Mobile Money, automated
+						invoices, Rental credit Score and Building transparency
 					</Text>
 				</div>
 				<div className={classes.groups}>{groups}</div>
 			</Container>
 			<Container className={classes.afterFooter}>
 				<Text color="dimmed" size="sm">
-          © 2023 ezanapay.com | All rights reserved.
+					© 2023 ezanapay.com | All rights reserved.
 				</Text>
 
-				<Group spacing={0} className={classes.social} position="right" noWrap>
+				<Group
+					spacing={0}
+					className={classes.social}
+					position="right"
+					noWrap>
 					<ActionIcon size="lg">
 						<IconBrandTwitter size="1.05rem" stroke={1.5} />
 					</ActionIcon>

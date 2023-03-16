@@ -2,13 +2,13 @@ import { TextInput } from '@mantine/core';
 import React from 'react';
 
 interface FormInputProps {
-  label: string
-  name: string
-  type: string
-  placeholder: string
-  value: string
-  isRequired?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+	label: string;
+	name: string;
+	type: string;
+	placeholder: string;
+	value: string;
+	isRequired?: boolean;
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const FormInput = ({

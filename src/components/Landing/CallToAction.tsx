@@ -28,25 +28,34 @@ const CallToAction = () => {
 			<h1 className="text-4xl font-bold">For Tenants</h1>
 			<div className="py-5 flex items-center flex-col">
 				<p className="text-center text-xl w-2/3">
-          Say <strong>goodbye</strong> to the <strong>stress</strong> of
-          receiving rent receipts on your doorsteps, going to the bank to pay,
-          or remembering due dates.
+					Say <strong>goodbye</strong> to the <strong>stress</strong>{' '}
+					of receiving rent receipts on your doorsteps, going to the
+					bank to pay, or remembering due dates.
 				</p>
 				<div className="grid grid-cols-2 gap-20 py-10">
 					<div className="flex items-center justify-center">
-						<img src={Tenant} alt="Tenant" className="rounded-2xl" />
+						<img
+							src={Tenant}
+							alt="Tenant"
+							className="rounded-2xl"
+						/>
 					</div>
 					<div className="flex items-center justify-start">
 						<h2 className="text-xl font-semibold">
-              Our technology makes rent payment;{' '}
+							Our technology makes rent payment;{' '}
 							<div className="space-y-4 mt-7">
 								{feat.map((feature) => (
 									<div
 										key={feature.id}
-										className="flex items-start justify-start space-x-2"
-									>
-										<img src={feature.image} alt="TICK" className="h-8 w-10" />
-										<h1 className="font-light">{feature.name}</h1>
+										className="flex items-start justify-start space-x-2">
+										<img
+											src={feature.image}
+											alt="TICK"
+											className="h-8 w-10"
+										/>
+										<h1 className="font-light">
+											{feature.name}
+										</h1>
 									</div>
 								))}
 							</div>
@@ -56,10 +65,16 @@ const CallToAction = () => {
 				<div className="grid grid-cols-2 gap-10 place-content-start place-items-start">
 					<div className="flex items-center justify-center w-96">
 						<div className="">
-							<h1 className="text-4xl font-bold mb-5">For Landlords</h1>
+							<h1 className="text-4xl font-bold mb-5">
+								For Landlords
+							</h1>
 							<div className="border-2 h-auto rounded-t-3xl">
 								<div className="relative h-44 w-full">
-									<img src={LandLord} alt="" className="w-full h-full rounded-t-3xl" />
+									<img
+										src={LandLord}
+										alt=""
+										className="w-full h-full rounded-t-3xl"
+									/>
 								</div>
 								<div className="p-5">
 									<ul>
@@ -74,10 +89,16 @@ const CallToAction = () => {
 					</div>
 					<div className="flex items-center justify-center w-96">
 						<div className="">
-							<h1 className="text-4xl font-bold mb-5">For Property Managers</h1>
+							<h1 className="text-4xl font-bold mb-5">
+								For Property Managers
+							</h1>
 							<div className="border-2 h-auto rounded-t-3xl">
 								<div className="relative h-44 w-full">
-									<img src={LandLord} alt="" className="w-full h-full rounded-t-3xl" />
+									<img
+										src={LandLord}
+										alt=""
+										className="w-full h-full rounded-t-3xl"
+									/>
 								</div>
 								<div className="p-5">
 									<ul>

@@ -14,24 +14,24 @@ export const loginSchema = z.object({
 	password: z.string().min(6).max(50),
 });
 
-export type LoginInput = TypeOf<typeof loginSchema>
+export type LoginInput = TypeOf<typeof loginSchema>;
 
 const Login = () => {
-	const[email, setEmail] = useState('');
-	const[password, setPassword] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
 	const methods = useForm<LoginInput>({
 		resolver: zodResolver(loginSchema),
 	});
 
 	const [loginUser, { isLoading, isError, error, isSuccess }] =
-    useLoginUserMutation();
+		useLoginUserMutation();
 
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	const from = ((location.state as any)?.from.pathname as string) || '/profile';
-
+	const from =
+		((location.state as any)?.from.pathname as string) || '/profile';
 
 	const {
 		reset,
@@ -75,19 +75,50 @@ const Login = () => {
 	return (
 		<AuthLayout>
 			<div className="w-96">
-				<Text fw={700} fz="xl" ta="center">Login</Text>
+				<Text fw={700} fz="xl" ta="center">
+					Login
+				</Text>
 				<FormProvider {...methods}>
-					<form onSubmit={handleSubmit(onSubmitHandler)} className='space-y-4'>
-						<FormInput name='email' value={email} onChange={(e) => setEmail(e.target.value)} isRequired={true} label='Email'  placeholder='john.doe@gmail.com' type='email' />
-						<FormInput name='password' value={password} onChange={(e) => setPassword(e.target.value)} label='Password' placeholder='********' isRequired={true} type='password' />
-						<div className='flex justify-between items-center'>
-							<Button variant='default' className='bg-primary text-white' loading={isLoading} type='submit' 
+					<form
+						onSubmit={handleSubmit(onSubmitHandler)}
+						className="space-y-4">
+						<FormInput
+							name="email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							isRequired={true}
+							label="Email"
+							placeholder="john.doe@gmail.com"
+							type="email"
+						/>
+						<FormInput
+							name="password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							label="Password"
+							placeholder="********"
+							isRequired={true}
+							type="password"
+						/>
+						<div className="flex justify-between items-center">
+							<Button
+								variant="default"
+								className="bg-primary text-white"
+								loading={isLoading}
+								type="submit"
 								onClick={() => {
 									console.log(email, password);
-								}
-								}
-							>Login</Button>
-							<Text fz="xs">Don't have an acount? <Link to="/register" className='text-primary underline '>Register</Link></Text>
+								}}>
+								Login
+							</Button>
+							<Text fz="xs">
+								Don't have an acount?{' '}
+								<Link
+									to="/register"
+									className="text-primary underline ">
+									Register
+								</Link>
+							</Text>
 						</div>
 					</form>
 				</FormProvider>

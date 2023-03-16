@@ -51,7 +51,10 @@ const useStyles = createStyles((theme) => ({
 		},
 
 		...theme.fn.hover({
-			backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+			backgroundColor:
+				theme.colorScheme === 'dark'
+					? theme.colors.dark[6]
+					: theme.colors.gray[0],
 		}),
 	},
 
@@ -61,20 +64,28 @@ const useStyles = createStyles((theme) => ({
 		borderRadius: theme.radius.md,
 
 		...theme.fn.hover({
-			backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
+			backgroundColor:
+				theme.colorScheme === 'dark'
+					? theme.colors.dark[7]
+					: theme.colors.gray[0],
 		}),
 
 		'&:active': theme.activeStyles,
 	},
 
 	dropdownFooter: {
-		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
+		backgroundColor:
+			theme.colorScheme === 'dark'
+				? theme.colors.dark[7]
+				: theme.colors.gray[0],
 		margin: `calc(${theme.spacing.md} * -1)`,
 		marginTop: theme.spacing.sm,
 		padding: `${theme.spacing.md} calc(${theme.spacing.md} * 2)`,
 		paddingBottom: theme.spacing.xl,
 		borderTop: `${rem(1)} solid ${
-			theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
+			theme.colorScheme === 'dark'
+				? theme.colors.dark[5]
+				: theme.colors.gray[1]
 		}`,
 	},
 
@@ -125,7 +136,8 @@ const mockdata = [
 ];
 
 export function NavBar() {
-	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
+		useDisclosure(false);
 	const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
 	const { classes, theme } = useStyles();
 
@@ -163,10 +175,12 @@ export function NavBar() {
 						<img src={Logo} alt="logo" className="h-10" />
 					</div>
 
-
-					<Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
+					<Group
+						sx={{ height: '100%' }}
+						spacing={0}
+						className={classes.hiddenMobile}>
 						<a href="#" className={classes.link}>
-              Home
+							Home
 						</a>
 						{/* <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
@@ -214,19 +228,31 @@ export function NavBar() {
               </HoverCard.Dropdown>
             </HoverCard> */}
 						<a href="#" className={classes.link}>
-              About
+							About
 						</a>
 						<a href="#" className={classes.link}>
-              Pricing
+							Pricing
 						</a>
 					</Group>
 
 					<Group className={classes.hiddenMobile}>
-						<Button variant="default" onClick={() => navigate('/login')}>Log in</Button>
-						<Button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading" onClick={() => navigate('/register')}>Sign up</Button>
+						<Button
+							variant="default"
+							onClick={() => navigate('/login')}>
+							Log in
+						</Button>
+						<Button
+							className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading"
+							onClick={() => navigate('/register')}>
+							Sign up
+						</Button>
 					</Group>
 
-					<Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
+					<Burger
+						opened={drawerOpened}
+						onClick={toggleDrawer}
+						className={classes.hiddenDesktop}
+					/>
 				</Group>
 			</Header>
 
@@ -237,36 +263,56 @@ export function NavBar() {
 				padding="md"
 				title="Navigation"
 				className={classes.hiddenDesktop}
-				zIndex={1000000}
-			>
+				zIndex={1000000}>
 				<ScrollArea h={`calc(100vh - ${rem(60)})`} mx="-md">
-					<Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
+					<Divider
+						my="sm"
+						color={
+							theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'
+						}
+					/>
 
 					<a href="#" className={classes.link}>
-            Home
+						Home
 					</a>
-					<UnstyledButton className={classes.link} onClick={toggleLinks}>
+					<UnstyledButton
+						className={classes.link}
+						onClick={toggleLinks}>
 						<Center inline>
 							<Box component="span" mr={5}>
-                Features
+								Features
 							</Box>
-							<IconChevronDown size={16} color={theme.fn.primaryColor()} />
+							<IconChevronDown
+								size={16}
+								color={theme.fn.primaryColor()}
+							/>
 						</Center>
 					</UnstyledButton>
 					<Collapse in={linksOpened}>{links}</Collapse>
 					<a href="#" className={classes.link}>
-            Learn
+						Learn
 					</a>
 					<a href="#" className={classes.link}>
-            Academy
+						Academy
 					</a>
 
-					<Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
+					<Divider
+						my="sm"
+						color={
+							theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'
+						}
+					/>
 
 					<Group position="center" grow pb="xl" px="md">
-						<Button variant="default" onClick={() => navigate('/login')}>Log in</Button>
-						<Button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-md tracking-wide leading"onClick={() => navigate('/register')}>
-            Sign Up
+						<Button
+							variant="default"
+							onClick={() => navigate('/login')}>
+							Log in
+						</Button>
+						<Button
+							className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-md tracking-wide leading"
+							onClick={() => navigate('/register')}>
+							Sign Up
 						</Button>
 					</Group>
 				</ScrollArea>
@@ -274,7 +320,6 @@ export function NavBar() {
 		</Box>
 	);
 }
-
 
 // import { Link } from "react-router-dom";
 
@@ -290,7 +335,7 @@ export function NavBar() {
 //           <Link to={"/auth"}>Login</Link>
 //         </button>
 //         <button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading">
-//           
+//
 //         </button>
 //       </div>
 //     </div>

@@ -5,11 +5,11 @@ import { toast } from 'react-toastify';
 import { BASE_URL } from '../../constants';
 
 interface FormValues {
-  firstName: string;
-  lastName: string;
-  password: string;
-  email: string;
-  role: string;
+	firstName: string;
+	lastName: string;
+	password: string;
+	email: string;
+	role: string;
 }
 
 const AuthPage = () => {
@@ -20,7 +20,7 @@ const AuthPage = () => {
 	const handleFormSubmit = async (data: FormValues) => {
 		setSubmitting(true);
 		setSubmitError(null);
-  
+
 		try {
 			let response;
 			if (showLogin) {
@@ -43,12 +43,14 @@ const AuthPage = () => {
 		} catch (error: any) {
 			console.error(error);
 			toast.error('Authentication failed. Please try again.');
-			setSubmitError(error.response?.data?.message ?? 'Authentication failed. Please try again.');
+			setSubmitError(
+				error.response?.data?.message ??
+					'Authentication failed. Please try again.'
+			);
 		} finally {
 			setSubmitting(false);
 		}
 	};
-  
 
 	const handleAlternativeLinkClick = () => {
 		setShowLogin(!showLogin);

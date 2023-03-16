@@ -5,25 +5,25 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import AuthFormLink from './AuthFormLink';
 
 interface AuthFormProps {
-  onSubmit: (data: FormValues) => Promise<void>;
-  isLogin: boolean;
-  submitting?: boolean;
-  formTitle: string;
-  submitButtonText: string;
-  alternativeLink: string;
-  alternativeLinkText: string;
-  authRoute: string;
-  onAlternativeLinkClick?: () => void;
-  onServiceSelect?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  selectedService?: string;
+	onSubmit: (data: FormValues) => Promise<void>;
+	isLogin: boolean;
+	submitting?: boolean;
+	formTitle: string;
+	submitButtonText: string;
+	alternativeLink: string;
+	alternativeLinkText: string;
+	authRoute: string;
+	onAlternativeLinkClick?: () => void;
+	onServiceSelect?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	selectedService?: string;
 }
 
 interface FormValues {
-  email: string;
-  password: string;
-  role: string;
-  firstName: string;
-  lastName: string;
+	email: string;
+	password: string;
+	role: string;
+	firstName: string;
+	lastName: string;
 }
 
 const AuthForm = ({
@@ -45,9 +45,9 @@ const AuthForm = ({
 		role: isLogin
 			? yup.string()
 			: yup
-				.string()
-				.oneOf(['LandLord', 'tenant', 'PropertyManager'])
-				.required(''),
+					.string()
+					.oneOf(['LandLord', 'tenant', 'PropertyManager'])
+					.required(''),
 	});
 
 	const {
@@ -61,9 +61,6 @@ const AuthForm = ({
 
 	const [submitError, setSubmitError] = useState<string | null>(null);
 
-
-  
-
 	const handleFormSubmit = async (data: FormValues) => {
 		try {
 			await onSubmit(data);
@@ -75,10 +72,14 @@ const AuthForm = ({
 	if (isLogin) {
 		return (
 			<form onSubmit={handleSubmit(handleFormSubmit)}>
-				<h2 className="text-2xl font-bold mb-6 text-gray-800">{formTitle}</h2>
+				<h2 className="text-2xl font-bold mb-6 text-gray-800">
+					{formTitle}
+				</h2>
 				<div className="mb-4">
-					<label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-            Email
+					<label
+						htmlFor="email"
+						className="block text-gray-700 font-bold mb-2">
+						Email
 					</label>
 					<input
 						id="email"
@@ -90,22 +91,25 @@ const AuthForm = ({
 						}`}
 					/>
 					{errors.email && (
-						<p className="text-red-500 mt-2 text-sm">{errors.email.message}</p>
+						<p className="text-red-500 mt-2 text-sm">
+							{errors.email.message}
+						</p>
 					)}
 				</div>
 				<div className="mb-4">
 					<label
 						htmlFor="password"
-						className="block text-gray-700 font-bold mb-2"
-					>
-            Password
+						className="block text-gray-700 font-bold mb-2">
+						Password
 					</label>
 					<input
 						id="password"
 						type="password"
 						{...register('password')}
 						className={`w-full border-2 rounded-md p-3 ${
-							errors.password ? 'border-red-500' : 'border-gray-300'
+							errors.password
+								? 'border-red-500'
+								: 'border-gray-300'
 						}`}
 					/>
 					{errors.password && (
@@ -118,8 +122,7 @@ const AuthForm = ({
 					<button
 						type="submit"
 						className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 disabled:opacity-50"
-						disabled={submitting}
-					>
+						disabled={submitting}>
 						{submitButtonText}
 					</button>
 					<AuthFormLink
@@ -136,12 +139,16 @@ const AuthForm = ({
 
 	return (
 		<form onSubmit={handleSubmit(handleFormSubmit)}>
-			<h2 className="text-2xl font-bold mb-6 text-gray-800">{formTitle}</h2>
+			<h2 className="text-2xl font-bold mb-6 text-gray-800">
+				{formTitle}
+			</h2>
 			{!isLogin && (
 				<>
 					<div className="mb-4">
-						<label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-          Email
+						<label
+							htmlFor="email"
+							className="block text-gray-700 font-bold mb-2">
+							Email
 						</label>
 						<input
 							id="email"
@@ -149,30 +156,37 @@ const AuthForm = ({
 							{...register('email')}
 							autoComplete="email"
 							className={`w-full border-2 rounded-md p-3 ${
-								errors.email ? 'border-red-500' : 'border-gray-300'
+								errors.email
+									? 'border-red-500'
+									: 'border-gray-300'
 							}`}
 						/>
 						{errors.email && (
-							<p className="text-red-500 mt-2 text-sm">{errors.email.message}</p>
+							<p className="text-red-500 mt-2 text-sm">
+								{errors.email.message}
+							</p>
 						)}
 					</div>
 					<div className="mb-4">
 						<label
 							htmlFor="password"
-							className="block text-gray-700 font-bold mb-2"
-						>
-          Password
+							className="block text-gray-700 font-bold mb-2">
+							Password
 						</label>
 						<input
 							id="password"
 							type="password"
 							{...register('password')}
 							className={`w-full border-2 rounded-md p-3 ${
-								errors.password ? 'border-red-500' : 'border-gray-300'
+								errors.password
+									? 'border-red-500'
+									: 'border-gray-300'
 							}`}
 						/>
 						{errors.password && (
-							<p className="text-red-500 mt-2 text-sm">{errors.password.message}</p>
+							<p className="text-red-500 mt-2 text-sm">
+								{errors.password.message}
+							</p>
 						)}
 					</div>
 					<div className="mb-4">
@@ -208,9 +222,8 @@ const AuthForm = ({
 						</div>
 						<label
 							htmlFor="role"
-							className="block text-gray-700 font-bold mb-2"
-						>
-            Service
+							className="block text-gray-700 font-bold mb-2">
+							Service
 						</label>
 						<div className="flex space-x-4">
 							<div className="flex items-center">
@@ -224,9 +237,8 @@ const AuthForm = ({
 								/>
 								<label
 									htmlFor="LandLord"
-									className="ml-2 block text-gray-700 font-bold mb-2"
-								>
-                Landlord
+									className="ml-2 block text-gray-700 font-bold mb-2">
+									Landlord
 								</label>
 							</div>
 							<div className="flex items-center">
@@ -240,9 +252,8 @@ const AuthForm = ({
 								/>
 								<label
 									htmlFor="tenant"
-									className="ml-2 block text-gray-700 font-bold mb-2"
-								>
-                Tenant
+									className="ml-2 block text-gray-700 font-bold mb-2">
+									Tenant
 								</label>
 							</div>
 							<div className="flex items-center">
@@ -256,9 +267,8 @@ const AuthForm = ({
 								/>
 								<label
 									htmlFor="property manager"
-									className="ml-2 block text-gray-700 font-bold mb-2"
-								>
-                Property Manager
+									className="ml-2 block text-gray-700 font-bold mb-2">
+									Property Manager
 								</label>
 							</div>
 						</div>
@@ -274,8 +284,7 @@ const AuthForm = ({
 			<button
 				type="submit"
 				className="bg-primary text-white py-2 px-4 rounded-md w-full text-center"
-				disabled={submitting}
-			>
+				disabled={submitting}>
 				{submitting ? 'Submitting...' : submitButtonText}
 			</button>
 			<AuthFormLink
