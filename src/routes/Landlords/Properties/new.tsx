@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 const AddProperty = () => {
-  return (
-    <div>AddProperty</div>
-  )
-}
+	return (
+		<div>AddProperty</div>
+	);
+};
 
-export default AddProperty
+export default AddProperty;
