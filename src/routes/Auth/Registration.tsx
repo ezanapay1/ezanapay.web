@@ -91,7 +91,7 @@ const Registration = () => {
           loading={isLoading}
            type='submit' 
           onClick={
-            navigate('/verify-email')
+           () => navigate('/verify-email')
           }
         >Register</Button>
         <Text fz="xs">Have an acount? <Link to="/login" className='text-primary underline '>Login</Link></Text>
