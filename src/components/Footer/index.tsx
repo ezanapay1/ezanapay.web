@@ -1,6 +1,8 @@
 import { createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 // import { MantineLogo } from '@mantine/ds';
+import Logo from "../../assets/logo.png"
+
 
 
 const useStyles = createStyles((theme) => ({
@@ -135,6 +137,9 @@ export function Footer({ data }: FooterLinksProps) {
       <Container className={classes.inner}>
         <div className={classes.logo}>
           {/* <MantineLogo size={30} /> */}
+          <div>
+         <img src={Logo} alt="logo" className="h-10" />
+       </div>
           <Text size="xs" color="dimmed" className={classes.description}>
           Experience a fast and seamless rent payment process. Direct
              Intergration with Mobile Money, automated invoices, Rental credit

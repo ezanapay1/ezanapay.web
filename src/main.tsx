@@ -9,17 +9,21 @@ import {
   Billing,
   Homepage,
   LandlordProfile,
+  Login,
   PropertyListing,
+  Registration,
   TenantsListing,
   Wallet,
+  VerifyEmail,
 } from "./routes";
 import {ErrorPage} from "./error";
 import Dashboard from "./routes/Landlords/Dashboard";
-import { store } from "./store";
 import { Provider } from "react-redux";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { MantineProvider } from "@mantine/core";
+import { store } from "./redux";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +32,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/auth",
-    element: <AuthPage />,
+    path: "/verify-email",
+    element: <VerifyEmail />
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Registration />,
   },
   {
     path: "/dashboard",
@@ -60,8 +72,15 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
+      <MantineProvider theme={{
+        // colors: {
+        //   brand: ['#FFC107', '#FFC107', '#FFC107', '#FFC107', '#FFC107']
+        // },
+        // primaryColor: "brand",
+      }}>
       <RouterProvider router={router} />
       <ToastContainer />
+      </MantineProvider>
     </Provider>
   </React.StrictMode>
 );

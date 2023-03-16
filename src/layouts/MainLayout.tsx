@@ -11,7 +11,16 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <NavBar />
       <main className="flex-1 overflow-y-auto">
         {children}
-         <Footer data={[]} />
+         <Footer data={[
+          {
+            title: "EzanaPay",
+            links: [
+              { label: "Home", link: "/" },
+              { label: "About", link: "/about" },
+              { label: "Contact", link: "/contact" },
+            ],
+          }
+         ]} />
       </main>
     </div>
   );

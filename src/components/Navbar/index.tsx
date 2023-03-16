@@ -131,6 +131,10 @@ export function NavBar() {
 
   const navigate = useNavigate();
 
+  const AuthNavigate = () => {
+    navigate("/auth")
+  }
+
   const links = mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group noWrap align="flex-start">
@@ -150,7 +154,7 @@ export function NavBar() {
   ));
 
   return (
-    <Box pb={120}>
+    <Box pb={0}>
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: '100%' }}>
           {/* <MantineLogo size={30} /> */}
@@ -218,8 +222,8 @@ export function NavBar() {
           </Group>
 
           <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
-            <Button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading">Sign up</Button>
+            <Button variant="default" onClick={() => navigate("/login")}>Log in</Button>
+            <Button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading" onClick={() => navigate("/register")}>Sign up</Button>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
@@ -260,8 +264,8 @@ export function NavBar() {
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
           <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-md tracking-wide leading" onClick={(e) => {navigate('/auth')}}>
+            <Button variant="default" onClick={() => navigate("/login")}>Log in</Button>
+            <Button className="bg-primary/80 text-white px-4 py-2 font-semibold rounded-md tracking-wide leading"onClick={() => navigate("/register")}>
             Sign Up
             </Button>
           </Group>

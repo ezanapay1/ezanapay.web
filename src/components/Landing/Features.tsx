@@ -9,26 +9,31 @@ import {
   Container,
   rem,
 } from '@mantine/core';
+
 import { IconGauge, IconUser, IconCookie } from '@tabler/icons-react';
+
+import Agreement from "../../assets/features/agreement.png";
+import Bill from "../../assets/features/bill.png";
+import Property from "../../assets/features/property.png";
 
 const mockdata = [
   {
-    title: 'Extreme performance',
+    title: 'Simple Property Listing',
     description:
-      'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
-    icon: IconGauge,
+      '',
+    icon: Property,
   },
   {
-    title: 'Privacy focused',
+    title: 'Automated Receipts and Invoices',
     description:
-      'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
-    icon: IconUser,
+      '',
+    icon: Bill,
   },
   {
-    title: 'No third parties',
+    title: 'Payment Process and Reconciliation',
     description:
-      'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
-    icon: IconCookie,
+      '',
+    icon: Property,
   },
 ];
 
@@ -80,7 +85,8 @@ export function Features() {
   const { classes, theme } = useStyles();
   const features = mockdata.map((feature) => (
     <Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
-      <feature.icon size={rem(50)} stroke={2} color={theme.fn.primaryColor()} />
+      <img src={feature.icon} alt="features" className="h-10 w-10" />
+      {/* <feature.icon size={rem(50)} stroke={2} color={theme.fn.primaryColor()} /> */}
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
@@ -93,18 +99,17 @@ export function Features() {
   return (
     <Container size="lg" py="xl">
       <Group position="center">
-        <Badge variant="filled" size="lg">
-          Best company ever
+        <Badge variant="filled" size="lg" className='bg-primary'>
+          The best software
         </Badge>
       </Group>
 
       <Title order={2} className={classes.title} ta="center" mt="sm">
-        Integrate effortlessly with any technology stack
+         Manage your properties with ease
       </Title>
 
       <Text c="dimmed" className={classes.description} ta="center" mt="md">
-        Every once in a while, you’ll see a Golbat that’s missing some fangs. This happens when
-        hunger drives it to try biting a Steel-type Pokémon.
+        We provide the best tech to help you manage your properties
       </Text>
 
       <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
@@ -115,9 +120,7 @@ export function Features() {
 }
 
 // import React from "react";
-// import Agreement from "../../assets/features/agreement.png";
-// import Bill from "../../assets/features/bill.png";
-// import Property from "../../assets/features/property.png";
+//
 
 // const features = [
 //   {

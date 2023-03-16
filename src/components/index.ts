@@ -1,7 +1,7 @@
 export { default as App } from "./App";
 export { NavBar } from "./Navbar";
 export { Footer } from "./Footer";
-export { default as Hero } from "./Hero";
+export { Hero } from "./Hero";
 export { default as About } from "./Landing/About";
 export { Features } from "./Landing/Features";
 export { default as CallToAction } from "./Landing/CallToAction";
