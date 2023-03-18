@@ -4,7 +4,6 @@ import { TypeOf, object, string, z } from 'zod'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useRegisterUserMutation } from '../../redux/api/authApi'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button, Text } from '@mantine/core'
@@ -33,53 +32,14 @@ const Registration = () => {
     resolver: zodResolver(registerSchema),
   })
 
-  const [registerUser, {isLoading, isSuccess, error, isError }] = useRegisterUserMutation()
-
-  const navigate = useNavigate();
-
-  const { reset, handleSubmit, formState: {isSubmitSuccessful}} = methods;
-
-  useEffect(() => {
-    if(isSuccess) {
-      toast.success('Registration successful')
-      navigate('/verify-email')
-    }
-
-    if(isError) {
-      console.log(error);
-
-      if (Array.isArray((error as any).data.error)) {
-        (error as any).data.error.forEach((err: any) => {
-          toast.error(err.message, {
-            position: 'top-right',
-          })
-        })
-      } else {
-        toast.error((error as any).data.error, {
-          position: 'top-right',
-        })
-      }
-    }
-  }, [isLoading])
-
-  useEffect(() => {
-    if(isSubmitSuccessful) {
-      reset()
-    }
-  }, [isSubmitSuccessful])
-
-
-  const onSubmitHandler: SubmitHandler<RegisterInput> = (data) => {
-    registerUser(data)
-  }
-
+  
   return (
     <AuthLayout>
       <Text fw={700} fz="xl" ta="center">Registration</Text>
       <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmitHandler)} className='space-y-4'>
+      <form  className='space-y-4'>
       <div className='grid grid-cols-2 gap-5'>
-        <FormInput label='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} name='firstName' placeholder='John' type='text'  />
+        <FormInput label='First Name'  value={firstName} onChange={(e) => setFirstName(e.target.value)} name='firstName' placeholder='John' type='text'  />
         <FormInput label='Last Name' name='lastName' value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder='Doe' type='text'  />
       </div>
       <FormInput name='email' label='Email' value={email} onChange={(e) => setEmail(e.target.value)}  placeholder='john.doe@gmail.com' type='email' />
@@ -88,12 +48,8 @@ const Registration = () => {
       <div className='flex justify-between items-center'>
         <Button variant='default'
          className='bg-primary text-white'
-          loading={isLoading}
            type='submit' 
-          onClick={
-           () => navigate('/verify-email')
-          }
-        >Register</Button>
+                  >Register</Button>
         <Text fz="xs">Have an acount? <Link to="/login" className='text-primary underline '>Login</Link></Text>
       </div>
       </form>

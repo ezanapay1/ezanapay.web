@@ -23,6 +23,7 @@ const FormInput = ({
   return (
     <TextInput
       label={label}
+      className=''
       name={name}
       type={type}
       placeholder={placeholder}
