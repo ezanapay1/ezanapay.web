@@ -1,130 +1,97 @@
-import React, { useEffect, useState } from 'react';
-import AuthLayout from '../../layouts/AuthLayout';
-import { Button, Text } from '@mantine/core';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import FormInput from '../../components/Forms/Inputs';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { TypeOf, z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useLoginUserMutation } from '../../redux/api/authApi';
-import { toast } from 'react-toastify';
+import { useRef, useState, useEffect } from 'react'
+import AuthLayout from '../../layouts/AuthLayout'
+import { Button, Text } from '@mantine/core'
+import FormInput from '../../components/Forms/Inputs'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
-export const loginSchema = z.object({
-	email: z.string().email(),
-	password: z.string().min(6).max(50),
-});
+import { useDispatch } from 'react-redux'
+import { setCredentials } from '../../redux/features/auth/authSlice'
+import { useLoginMutation } from '../../redux/features/auth/authApiSlice'
 
-export type LoginInput = TypeOf<typeof loginSchema>;
+import {useForm} from "@mantine/form"
 
 const Login = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+  const userRef = useRef<null | !undefined>(null)
+  const errRef = useRef()
+  const [errMsg, setErrMsg] = useState('')
+  const[email, setEmail] = useState('')
+  const[password, setPassword] = useState('')
 
-	const methods = useForm<LoginInput>({
-		resolver: zodResolver(loginSchema),
-	});
+  const form = useForm({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validate: {
+      email: (value) => {
+        if (!value) return 'Email is required'
+        if (!value.includes('@')) return 'Email is invalid'
+      },
+      password: (value) => {
+        if (!value) return 'Password is required'
+        if (value.length < 6) return 'Password must be at least 6 characters'
+      }
 
-	const [loginUser, { isLoading, isError, error, isSuccess }] =
-		useLoginUserMutation();
+    }
+  })
+  
+  const navigate = useNavigate() 
 
-	const navigate = useNavigate();
-	const location = useLocation();
+  const [login, {isLoading, }] = useLoginMutation()
+  const dispatch = useDispatch()
 
-	const from =
-		((location.state as any)?.from.pathname as string) || '/profile';
+  // useEffect(() => {
+  //   userRef.current.focus()
+  // }, [])
 
-	const {
-		reset,
-		handleSubmit,
-		formState: { isSubmitSuccessful },
-	} = methods;
+  useEffect(() => {
+    setErrMsg('')
+  }, [email, password])
 
-	useEffect(() => {
-		if (isSuccess) {
-			toast.success('You successfully logged in');
-			navigate(from);
-		}
-		if (isError) {
-			if (Array.isArray((error as any).data.error)) {
-				(error as any).data.error.forEach((el: any) =>
-					toast.error(el.message, {
-						position: 'top-right',
-					})
-				);
-			} else {
-				toast.error((error as any).data.message, {
-					position: 'top-right',
-				});
-			}
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isLoading]);
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await login({email, password}).unwrap()
+      dispatch(setCredentials({token: res.token, user: res.user}))
+      setEmail('')
+      setPassword('')
 
-	useEffect(() => {
-		if (isSubmitSuccessful) {
-			reset();
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isSubmitSuccessful]);
+      toast.success('Login successful')
+      navigate('/dashboard')
+    } catch (error: any) {h
+      setErrMsg(error.message)
+      toast.error(error.message)
+    }
+  }
 
-	const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
-		// ? Executing the loginUser Mutation
-		loginUser(values);
-	};
+  return (
+    <AuthLayout>
+      <div className="w-96">
+      <Text fw={700} fz="xl" ta="center">Login</Text>
+      
+      <form className='space-y-4'>
+      <FormInput 
+         name='email' 
+         isRequired={true}
+         label='Email'  
+         placeholder='john.doe@gmail.com' 
+         type='email' {...form.getInputProps('email')}
+        />
+      <FormInput name='password' value={password} onChange={(e) => setPassword(e.target.value)} label='Password' placeholder='********' isRequired={true} type='password' />
+      <div className='flex justify-between items-center'>
+        <Button variant='default' className='bg-primary text-white' type='submit' 
+          onClick={() => {
+                       console.log(email, password)
+          }
+        }
+        >Login</Button>
+        <Text fz="xs">Don't have an acount? <Link to="/register" className='text-primary underline '>Register</Link></Text>
+      </div>
+      </form>
+      </div>
+    </AuthLayout>
+  )
+}
 
-	return (
-		<AuthLayout>
-			<div className="w-96">
-				<Text fw={700} fz="xl" ta="center">
-					Login
-				</Text>
-				<FormProvider {...methods}>
-					<form
-						onSubmit={handleSubmit(onSubmitHandler)}
-						className="space-y-4">
-						<FormInput
-							name="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							isRequired={true}
-							label="Email"
-							placeholder="john.doe@gmail.com"
-							type="email"
-						/>
-						<FormInput
-							name="password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							label="Password"
-							placeholder="********"
-							isRequired={true}
-							type="password"
-						/>
-						<div className="flex justify-between items-center">
-							<Button
-								variant="default"
-								className="bg-primary text-white"
-								loading={isLoading}
-								type="submit"
-								onClick={() => {
-									console.log(email, password);
-								}}>
-								Login
-							</Button>
-							<Text fz="xs">
-								Don't have an acount?{' '}
-								<Link
-									to="/register"
-									className="text-primary underline ">
-									Register
-								</Link>
-							</Text>
-						</div>
-					</form>
-				</FormProvider>
-			</div>
-		</AuthLayout>
-	);
-};
-
-export default Login;
+export default Login
