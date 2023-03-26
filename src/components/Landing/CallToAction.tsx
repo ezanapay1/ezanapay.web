@@ -3,6 +3,7 @@ import Tick from '../../assets/icons/tick.png';
 import LandLord from '../../assets/landlord.jpg';
 import PropertyManager from '../../assets/property-manager.jpg';
 import { BanknotesIcon } from '@heroicons/react/24/outline';
+import styles from './callToAction.css';
 
 const feat = [
 	{
@@ -62,10 +63,34 @@ const CallToAction = () => {
 						</h2>
 					</div>
 				</div>
-				<div className="grid grid-cols-2 gap-10 place-content-start place-items-start">
-					<div className="flex items-center justify-center w-96">
+				<div className="grid grid-cols-2 gap-10 place-content-start place-items-start justify-center">
+					{/* <div className="flex items-center justify-center w-96">
 						<div className="">
 							<h1 className="text-4xl font-bold mb-5">
+								For Landlords
+							</h1>
+							<div className="border-2 h-auto rounded-t-3xl">
+								<div className="relative h-44 w-full">
+									<img
+										src={LandLord}
+										alt=""
+										className="w-full h-full rounded-t-3xl"
+									/>
+								</div>
+								<div className="p-5">
+									<ul>
+										<li className="flex space-x-2 items-center">
+											<BanknotesIcon className="h-8 text-primary" />
+											<h1>Automated Rent Collection</h1>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div> */}
+					<div className="flex items-center justify-center w-96">
+						<div className="">
+							<h1 className="font-bold mb-5">
 								For Landlords
 							</h1>
 							<div className="border-2 h-auto rounded-t-3xl">
@@ -89,7 +114,7 @@ const CallToAction = () => {
 					</div>
 					<div className="flex items-center justify-center w-96">
 						<div className="">
-							<h1 className="text-4xl font-bold mb-5">
+							<h1 className="font-bold mb-5">
 								For Property Managers
 							</h1>
 							<div className="border-2 h-auto rounded-t-3xl">
