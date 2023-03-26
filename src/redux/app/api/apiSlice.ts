@@ -9,8 +9,8 @@ import { BASE_URL } from "../../../constants";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: `${BASE_URL}`,
-  credentials: "include",
-  prepareHeaders: (headers, { getState }) => {
+  // credentials: "include",
+  prepareHeaders: (headers, { getState }: any) => {
     const token = getState().auth.token;
     if (token) {
       headers.set("Authorization", `Bearer ${token}`);
@@ -43,3 +43,7 @@ export const apiSlice = createApi({
     
   }),
 });
+function getState() {
+
+}
+
