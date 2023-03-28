@@ -1,10 +1,7 @@
-<<<<<<< HEAD
+/* eslint-disable linebreak-style */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable linebreak-style */
-=======
->>>>>>> 63d34bf7e2df6a8480d40bc4fb5685f8dfb6647c
-import { useRef, useState, useEffect } from 'react';
 import AuthLayout from '../../layouts/AuthLayout';
 import { Button, Text } from '@mantine/core';
 import FormInput from '../../components/Forms/Inputs';
@@ -12,10 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { useDispatch } from 'react-redux';
-<<<<<<< HEAD
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-=======
->>>>>>> 63d34bf7e2df6a8480d40bc4fb5685f8dfb6647c
 import { setCredentials } from '../../redux/features/auth/authSlice';
 import { useLoginMutation } from '../../redux/features/auth/authApiSlice';
 
@@ -102,12 +96,8 @@ const Login = () => {
 						<Button
 							variant="default"
 							className="bg-primary text-white"
-<<<<<<< HEAD
 							type="submit"
 							loading={isLoading}>
-=======
-							type="submit">
->>>>>>> 63d34bf7e2df6a8480d40bc4fb5685f8dfb6647c
 							Login
 						</Button>
 						<Text fz="xs">
