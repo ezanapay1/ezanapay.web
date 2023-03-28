@@ -1,0 +1,40 @@
+.grid-center {
+    display: grid;
+    place-items: center;
+}
+
+.landing-item {
+    width: 100%;
+} 
+
+.landing-item img {
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    height: 383px;
+}
+
+.landing-item-inner {
+    text-align: center;
+}
+
+.landing-item-header {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.landing-item-desc {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* .landlords {
+    width: 100%;
+}
+
+.prop-managers {
+    width: 100%;
+} */
