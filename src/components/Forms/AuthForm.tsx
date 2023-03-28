@@ -45,9 +45,9 @@ const AuthForm = ({
 		role: isLogin
 			? yup.string()
 			: yup
-					.string()
-					.oneOf(['LandLord', 'tenant', 'PropertyManager'])
-					.required(''),
+				.string()
+				.oneOf(['LandLord', 'tenant', 'PropertyManager'])
+				.required(''),
 	});
 
 	const {
