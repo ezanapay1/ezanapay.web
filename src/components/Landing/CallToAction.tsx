@@ -90,9 +90,7 @@ const CallToAction = () => {
 					</div> */}
 					<div className="flex items-center justify-center w-96">
 						<div className="">
-							<h1 className="font-bold mb-5">
-								For Landlords
-							</h1>
+							<h1 className="font-bold mb-5">For Landlords</h1>
 							<div className="border-2 h-auto rounded-t-3xl">
 								<div className="relative h-44 w-full">
 									<img
