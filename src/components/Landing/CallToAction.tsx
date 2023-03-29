@@ -1,9 +1,11 @@
+/* eslint-disable linebreak-style */
 import Tenant from '../../assets/tenant.jpg';
 import Tick from '../../assets/icons/tick.png';
 import LandLord from '../../assets/landlord.jpg';
 import PropertyManager from '../../assets/property-manager.jpg';
-import { BanknotesIcon } from '@heroicons/react/24/outline';
-import styles from './callToAction.css';
+import { BanknotesIcon, HomeModernIcon } from '@heroicons/react/24/outline';
+import './callToAction.css';
+import React from 'react';
 
 const feat = [
 	{
@@ -64,76 +66,119 @@ const CallToAction = () => {
 					</div>
 				</div>
 				<div className="grid grid-cols-2 gap-10 place-content-start place-items-start justify-center">
-					{/* <div className="flex items-center justify-center w-96">
-						<div className="">
-							<h1 className="text-4xl font-bold mb-5">
+					<div className="landing-item-inner">
+						<div className="landing-item landlords">
+							<h1 className="landing-item-header">
 								For Landlords
 							</h1>
-							<div className="border-2 h-auto rounded-t-3xl">
-								<div className="relative h-44 w-full">
-									<img
-										src={LandLord}
-										alt=""
-										className="w-full h-full rounded-t-3xl"
-									/>
+							<div className="">
+								<div className="">
+									<img src={LandLord} alt="" className="" />
 								</div>
-								<div className="p-5">
+								<div className="">
+									<h2>
+										Gain control and simplify your property
+										management with our technology
+									</h2>
 									<ul>
 										<li className="flex space-x-2 items-center">
-											<BanknotesIcon className="h-8 text-primary" />
+											<HomeModernIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
+										</li>
+										<li className="flex space-x-2 items-center">
+											<HomeModernIcon className="h-8 text-primary" />
+											<h1>
+												Streamline communication with
+												tenants and property managers
+											</h1>
+										</li>
+										<li className="flex space-x-2 items-center">
+											<HomeModernIcon className="h-8 text-primary" />
+											<h1>
+												Easily vet new tenants with a
+												tenant credit score
+											</h1>
+										</li>
+										<li className="flex space-x-2 items-center">
+											<HomeModernIcon className="h-8 text-primary" />
+											<h1>
+												Access accurate reports and
+												up-to-date information with just
+												a few clicks
+											</h1>
 										</li>
 									</ul>
 								</div>
 							</div>
-						</div>
-					</div> */}
-					<div className="flex items-center justify-center w-96">
-						<div className="">
-							<h1 className="font-bold mb-5">
-								For Landlords
-							</h1>
-							<div className="border-2 h-auto rounded-t-3xl">
-								<div className="relative h-44 w-full">
-									<img
-										src={LandLord}
-										alt=""
-										className="w-full h-full rounded-t-3xl"
-									/>
-								</div>
-								<div className="p-5">
-									<ul>
-										<li className="flex space-x-2 items-center">
-											<BanknotesIcon className="h-8 text-primary" />
-											<h1>Automated Rent Collection</h1>
-										</li>
-									</ul>
-								</div>
+							<div className="landing-item-desc">
+								Say goodbye to the chaos and frustration of
+								manual record-keeping on excel sheets and hello
+								to an organized, time-saving, and cost-effective
+								solution.
 							</div>
 						</div>
 					</div>
-					<div className="flex items-center justify-center w-96">
-						<div className="">
-							<h1 className="font-bold mb-5">
+					<div className="landing-item prop-managers">
+						<div className="landing-item-inner">
+							<h1 className="landing-item-header">
 								For Property Managers
 							</h1>
-							<div className="border-2 h-auto rounded-t-3xl">
-								<div className="relative h-44 w-full">
+							<div className="">
+								<div className="">
 									<img
-										src={LandLord}
+										src={PropertyManager}
 										alt=""
-										className="w-full h-full rounded-t-3xl"
+										className=""
 									/>
 								</div>
-								<div className="p-5">
+								<div className="">
 									<ul>
+										<h2>
+											Improve efficiency and productivity
+											with our technology
+										</h2>
 										<li className="flex space-x-2 items-center">
 											<BanknotesIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
 										</li>
+										<li className="flex space-x-2 items-center">
+											<BanknotesIcon className="h-8 text-primary" />
+											<h1>
+												Communication with tenants and
+												landlords effectively
+											</h1>
+										</li>
+										<li className="flex space-x-2 items-center">
+											<BanknotesIcon className="h-8 text-primary" />
+											<h1>
+												Access real-time information and
+												reports
+											</h1>
+										</li>
+										<li className="flex space-x-2 items-center">
+											<BanknotesIcon className="h-8 text-primary" />
+											<h1>
+												Streamline property management
+												tasks with just a few clicks
+											</h1>
+										</li>
+										<li className="flex space-x-2 items-center">
+											<BanknotesIcon className="h-8 text-primary" />
+											<h1>
+												Track and reconcile payments
+												made to your Landlords
+											</h1>
+										</li>
 									</ul>
 								</div>
 							</div>
+						</div>
+						<div className="landing-item-desc">
+							Join the revolution and start experiencing the
+							benefits of technology in rent payment and property
+							management today. Sign up now and experience the
+							ease, convenience, and peace of mind that comes with
+							our innovative solution.
 						</div>
 					</div>
 				</div>
