@@ -76,11 +76,11 @@ const CallToAction = () => {
 									<img src={LandLord} alt="" className="" />
 								</div>
 								<div className="">
-									<h2>
+									<h2 className="landing-item-header-2">
 										Gain control and simplify your property
 										management with our technology
 									</h2>
-									<ul>
+									<ul className="icon-list">
 										<li className="flex space-x-2 items-center">
 											<HomeModernIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
@@ -110,12 +110,6 @@ const CallToAction = () => {
 									</ul>
 								</div>
 							</div>
-							<div className="landing-item-desc">
-								Say goodbye to the chaos and frustration of
-								manual record-keeping on excel sheets and hello
-								to an organized, time-saving, and cost-effective
-								solution.
-							</div>
 						</div>
 					</div>
 					<div className="landing-item prop-managers">
@@ -132,11 +126,12 @@ const CallToAction = () => {
 									/>
 								</div>
 								<div className="">
-									<ul>
-										<h2>
-											Improve efficiency and productivity
-											with our technology
-										</h2>
+									<h2 className="landing-item-header-2">
+										Improve efficiency and productivity
+										with our technology
+									</h2>
+									<ul className="icon-list">
+										
 										<li className="flex space-x-2 items-center">
 											<BanknotesIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
@@ -173,14 +168,22 @@ const CallToAction = () => {
 								</div>
 							</div>
 						</div>
-						<div className="landing-item-desc">
-							Join the revolution and start experiencing the
-							benefits of technology in rent payment and property
-							management today. Sign up now and experience the
-							ease, convenience, and peace of mind that comes with
-							our innovative solution.
-						</div>
 					</div>
+				</div>
+				<div className="landing-item-desc">
+					<h1>
+						Say goodbye to the chaos and frustration of
+						manual record-keeping on excel sheets and hello
+						to an organized, time-saving, and cost-effective
+						solution.
+					</h1>
+					<h1>
+						Join the revolution and start experiencing the
+						benefits of technology in rent payment and property
+						management today. Sign up now and experience the
+						ease, convenience, and peace of mind that comes with
+						our innovative solution.
+					</h1>
 				</div>
 			</div>
 		</div>
