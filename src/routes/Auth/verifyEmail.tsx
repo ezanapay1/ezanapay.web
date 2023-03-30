@@ -14,9 +14,7 @@ export type VerificationCodeInput = TypeOf<typeof verificationCodeSchema>;
 const VerifyEmail = () => {
 	const { verificationCode } = useParams();
 
-	return (
-		<div>verifyEmail</div>
-	);
+	return <div>verifyEmail</div>;
 };
 
 export default VerifyEmail;

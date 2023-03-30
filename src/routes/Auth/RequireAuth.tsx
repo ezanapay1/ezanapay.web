@@ -8,9 +8,7 @@ const RequireAuth = () => {
 	const token = useSelector(selectCurrentToken);
 	// const location = useLocation();
 
-	return token ? (
-		<></>
-	): null;
+	return token ? <></> : null;
 };
 
 export default RequireAuth;

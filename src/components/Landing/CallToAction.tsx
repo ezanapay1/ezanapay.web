@@ -4,7 +4,7 @@ import Tick from '../../assets/icons/tick.png';
 import LandLord from '../../assets/landlord.jpg';
 import PropertyManager from '../../assets/property-manager.jpg';
 import { BanknotesIcon, HomeModernIcon } from '@heroicons/react/24/outline';
-import './callToAction.css';
+// import './callToAction.css';
 import React from 'react';
 
 const feat = [
@@ -65,22 +65,25 @@ const CallToAction = () => {
 						</h2>
 					</div>
 				</div>
-				<div className="grid grid-cols-2 gap-10 place-content-start place-items-start justify-center">
-					<div className="landing-item-inner">
-						<div className="landing-item landlords">
-							<h1 className="landing-item-header">
+				<div className="flex flex-col items-center justify-center mx-auto px-4 space-y-12 md:flex-row md:space-y-0">
+					<div id="for-landlords">
+						<div className="flex flex-col justify-center items-center mx-auto space-y-6 md:w-1/2">
+							<h1 className="font-bold text-4xl max-w-md">
 								For Landlords
 							</h1>
-							<div className="">
-								<div className="">
-									<img src={LandLord} alt="" className="" />
+							<div className="flex flex-col space-y-8">
+								<div className="px-4 mx-auto">
+									<img src={LandLord} 
+										alt=""
+										className="rounded-lg h-70 md:w-full md:h-60"
+									/>
 								</div>
-								<div className="">
-									<h2 className="landing-item-header-2">
+								<div className="flex flex-col space-y-6">
+									<h2 className="max-w-sm md:text-3xl">
 										Gain control and simplify your property
 										management with our technology
 									</h2>
-									<ul className="icon-list">
+									<ul className="mt-5 md:text-2xl">
 										<li className="flex space-x-2 items-center">
 											<HomeModernIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
@@ -112,26 +115,25 @@ const CallToAction = () => {
 							</div>
 						</div>
 					</div>
-					<div className="landing-item prop-managers">
-						<div className="landing-item-inner">
-							<h1 className="landing-item-header">
+					<div id="for-property-managers">
+						<div className="flex flex-col justify-center items-center mx-auto space-y-6 md:w-1/2">
+							<h1 className="font-bold text-4xl max-w-md">
 								For Property Managers
 							</h1>
-							<div className="">
-								<div className="">
+							<div className="flex flex-col space-y-8">
+								<div className="px-4 mx-auto">
 									<img
 										src={PropertyManager}
 										alt=""
-										className=""
+										className="rounded-lg h-70 md:w-full md:h-60"
 									/>
 								</div>
-								<div className="">
-									<h2 className="landing-item-header-2">
-										Improve efficiency and productivity
-										with our technology
+								<div className="flex flex-col space-y-6">
+									<h2 className="max-w-sm md:text-3xl">
+										Improve efficiency and productivity with
+										our technology
 									</h2>
-									<ul className="icon-list">
-										
+									<ul className="mt-5 md:text-2xl">
 										<li className="flex space-x-2 items-center">
 											<BanknotesIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
@@ -170,19 +172,18 @@ const CallToAction = () => {
 						</div>
 					</div>
 				</div>
-				<div className="landing-item-desc">
-					<h1>
-						Say goodbye to the chaos and frustration of
-						manual record-keeping on excel sheets and hello
-						to an organized, time-saving, and cost-effective
-						solution.
+				<div className="flex flex-col mx-auto px-4 mt-10">
+					<h1 className="mb-5">
+						Say goodbye to the chaos and frustration of manual
+						record-keeping on excel sheets and hello to an
+						organized, time-saving, and cost-effective solution.
 					</h1>
 					<h1>
-						Join the revolution and start experiencing the
-						benefits of technology in rent payment and property
-						management today. Sign up now and experience the
-						ease, convenience, and peace of mind that comes with
-						our innovative solution.
+						Join the revolution and start experiencing the benefits
+						of technology in rent payment and property management
+						today. Sign up now and experience the ease, convenience,
+						and peace of mind that comes with our innovative
+						solution.
 					</h1>
 				</div>
 			</div>
