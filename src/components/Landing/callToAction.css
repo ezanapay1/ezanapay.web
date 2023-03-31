@@ -18,6 +18,7 @@
 .landing-item-body {
     display: grid;
     place-items: center;
+    margin: 0 10px;
 }
 
 .landing-item img {

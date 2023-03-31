@@ -72,7 +72,7 @@ const CallToAction = () => {
 								For Landlords
 							</h1>
 							<div className="landing-item-body">
-								<div className="">
+								<div className="img-cover">
 									<img src={LandLord} alt="" className="" />
 								</div>
 								<div className="">
@@ -124,7 +124,7 @@ const CallToAction = () => {
 								For Property Managers
 							</h1>
 							<div className="landing-item-body">
-								<div className="">
+								<div className="img-cover">
 									<img
 										src={PropertyManager}
 										alt=""
