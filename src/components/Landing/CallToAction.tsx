@@ -65,13 +65,13 @@ const CallToAction = () => {
 						</h2>
 					</div>
 				</div>
-				<div className="grid grid-cols-2 gap-10 place-content-start place-items-start justify-center">
-					<div className="landing-item-inner">
-						<div className="landing-item landlords">
+				<div className="landing-main">
+					<div className="landing-item landlords">
+						<div className="landing-item-inner">
 							<h1 className="landing-item-header">
 								For Landlords
 							</h1>
-							<div className="">
+							<div className="landing-item-body">
 								<div className="">
 									<img src={LandLord} alt="" className="" />
 								</div>
@@ -80,7 +80,7 @@ const CallToAction = () => {
 										Gain control and simplify your property
 										management with our technology
 									</h2>
-									<ul>
+									<ul className="icon-list">
 										<li className="flex space-x-2 items-center">
 											<HomeModernIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
@@ -123,7 +123,7 @@ const CallToAction = () => {
 							<h1 className="landing-item-header">
 								For Property Managers
 							</h1>
-							<div className="">
+							<div className="landing-item-body">
 								<div className="">
 									<img
 										src={PropertyManager}
@@ -132,11 +132,12 @@ const CallToAction = () => {
 									/>
 								</div>
 								<div className="">
-									<ul>
-										<h2>
-											Improve efficiency and productivity
-											with our technology
-										</h2>
+									<h2>
+										Improve efficiency and productivity
+										with our technology
+									</h2>
+									<ul className="icon-list">
+										
 										<li className="flex space-x-2 items-center">
 											<BanknotesIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
