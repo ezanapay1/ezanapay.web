@@ -54,6 +54,19 @@
     width: 100%;
 }
 
+.meta-desc {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.icons-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
 @media only screen and (max-width: 767px) {
     .landing-main {
         display: flex;

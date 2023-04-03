@@ -75,12 +75,12 @@ const CallToAction = () => {
 								<div className="img-cover">
 									<img src={LandLord} alt="" className="" />
 								</div>
-								<div className="">
+								<div className="meta-desc">
 									<h2>
 										Gain control and simplify your property
 										management with our technology
 									</h2>
-									<ul className="icon-list">
+									<ul className="icons-list">
 										<li className="flex space-x-2 items-center">
 											<HomeModernIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
@@ -131,13 +131,12 @@ const CallToAction = () => {
 										className=""
 									/>
 								</div>
-								<div className="">
+								<div className="meta-desc">
 									<h2>
 										Improve efficiency and productivity
 										with our technology
 									</h2>
-									<ul className="icon-list">
-										
+									<ul className="icons-list">
 										<li className="flex space-x-2 items-center">
 											<BanknotesIcon className="h-8 text-primary" />
 											<h1>Automated Rent Collection</h1>
