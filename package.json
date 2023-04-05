@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync": "aws s3 sync ./dist s3://ezanapay.com"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
+    "@heroicons/react": "^2.0.17",
     "@mantine/carousel": "^6.0.6",
     "@mantine/core": "^6.0.6",
     "@mantine/dates": "^6.0.6",

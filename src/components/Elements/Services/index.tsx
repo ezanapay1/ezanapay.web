@@ -1,10 +1,10 @@
 /* eslint-disable linebreak-style */
-import Tenant from '../../assets/tenant.jpg';
-import Tick from '../../assets/icons/tick.png';
-import LandLord from '../../assets/landlord.jpg';
-import PropertyManager from '../../assets/property-manager.jpg';
+import Tenant from '../../../assets/tenant.jpg';
+import Tick from '../../../assets/icons/tick.png';
+import LandLord from '../../../assets/landlord.jpg';
+import PropertyManager from '../../../assets/property-manager.jpg';
 import { BanknotesIcon, HomeModernIcon } from '@heroicons/react/24/outline';
-import './callToAction.css';
+import './index.css';
 import React from 'react';
 
 const feat = [
@@ -25,7 +25,7 @@ const feat = [
 	},
 ];
 
-const CallToAction = () => {
+export function Services () {
 	return (
 		<div className="p-10 h-auto">
 			<h1 className="text-4xl font-bold">For Tenants</h1>
@@ -186,5 +186,3 @@ const CallToAction = () => {
 		</div>
 	);
 };
-
-export default CallToAction;

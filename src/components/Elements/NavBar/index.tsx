@@ -18,7 +18,7 @@ import {
 	ScrollArea,
 	rem,
 } from '@mantine/core';
-import Logo from '../../assets/logo.png';
+import Logo from '../../../assets/logo.png';
 import { useDisclosure } from '@mantine/hooks';
 import {
 	IconNotification,
@@ -146,27 +146,8 @@ export function NavBar() {
 	const AuthNavigate = () => {
 		navigate('/auth');
 	};
-
-	const links = mockdata.map((item) => (
-		<UnstyledButton className={classes.subLink} key={item.title}>
-			<Group noWrap align="flex-start">
-				<ThemeIcon size={34} variant="default" radius="md">
-					<item.icon size={rem(22)} color={theme.fn.primaryColor()} />
-				</ThemeIcon>
-				<div>
-					<Text size="sm" fw={500}>
-						{item.title}
-					</Text>
-					<Text size="xs" color="dimmed">
-						{item.description}
-					</Text>
-				</div>
-			</Group>
-		</UnstyledButton>
-	));
-
 	return (
-		<Box pb={0}>
+		<Box pb={0} className="sticky top-0 z-10">
 			<Header height={60} px="md">
 				<Group position="apart" sx={{ height: '100%' }}>
 					{/* <MantineLogo size={30} /> */}
@@ -230,25 +211,11 @@ export function NavBar() {
 					<a href="#" className={classes.link}>
 						Home
 					</a>
-					<UnstyledButton
-						className={classes.link}
-						onClick={toggleLinks}>
-						<Center inline>
-							<Box component="span" mr={5}>
-								Features
-							</Box>
-							<IconChevronDown
-								size={16}
-								color={theme.fn.primaryColor()}
-							/>
-						</Center>
-					</UnstyledButton>
-					<Collapse in={linksOpened}>{links}</Collapse>
 					<a href="#" className={classes.link}>
-						Learn
+						About
 					</a>
 					<a href="#" className={classes.link}>
-						Academy
+						Pricing
 					</a>
 
 					<Divider
