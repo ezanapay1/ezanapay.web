@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { ReactNode } from 'react';
 
-interface LayoutProps {
-    children: React.ReactNode
-}
+type AuthLayoutProps = {
+	children: ReactNode;
+};
 
-const Layout = ({children}: LayoutProps) => {
-  return (
-    <div>{children}</div>
-  )
-}
+const AuthLayout = ({ children }: AuthLayoutProps) => {
+	return (
+		<div className="flex justify-center items-center h-screen bg-gray-100">
+			<div className="bg-white p-6 rounded-md">{children}</div>
+		</div>
+	);
+};
 
-export default Layout
+export default AuthLayout;

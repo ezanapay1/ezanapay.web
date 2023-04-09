@@ -6,14 +6,12 @@ import AuthLayout from '../../layouts/AuthLayout';
 import { Button, Text } from '@mantine/core';
 import FormInput from '../../components/Forms/Inputs';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 import { useDispatch } from 'react-redux';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { setCredentials } from '../../redux/features/auth/authSlice';
 import { useLoginMutation } from '../../redux/features/auth/authApiSlice';
 
-import { useForm } from '@mantine/form';
 
 const Login = () => {
 	const form = useForm({
