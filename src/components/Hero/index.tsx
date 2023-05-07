@@ -7,9 +7,6 @@ import {
 	rem,
 } from '@mantine/core';
 
-import { useNavigate } from 'react-router-dom';
-
-
 const useStyles = createStyles((theme) => ({
 	root: {
 		backgroundColor: '#11284b',
@@ -85,8 +82,6 @@ const useStyles = createStyles((theme) => ({
 
 export function Hero() {
 	const { classes } = useStyles();
-	const navigate = useNavigate();
-
 	return (
 		<div className={classes.root}>
 			<Container size="lg">
@@ -114,8 +109,7 @@ export function Hero() {
 							gradient={{ from: 'pink', to: 'yellow' }}
 							size="xl"
 							className={`${classes.control} bg-primary/80 text-white px-4 py-2 font-semibold rounded-lg tracking-wide leading`}
-							mt={40}
-							onClick={() => navigate('/register')}>
+							mt={40}>
 							Get started
 						</Button>
 					</div>
