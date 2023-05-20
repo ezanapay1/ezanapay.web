@@ -4,9 +4,17 @@ import { API_URL } from '../../../config';
 
 const backendUrl = `${API_URL}`;
 
+type UserProp = {
+    first_name: string;
+    last_name: string;
+    email: string;
+    password: string;
+    role: string;
+}
+
 export const registerUser = createAsyncThunk(
     'auth/register',
-    async (data: any, thunkAPI) => {
+    async ({first_name, last_name, email, password, role}: UserProp, {rejectWithValue}) => {
         try {
             const config = {
                 headers: {
@@ -14,13 +22,19 @@ export const registerUser = createAsyncThunk(
                 }
             }
 
-            await axios.post(`${backendUrl}/auth/register`, data, config);
+            await axios.post(`${backendUrl}/auth/register`, {
+                first_name,
+                last_name,
+                email,
+                password,
+                role
+            }, config);
 
         } catch (e: any) {
             if (e.response && e.response.data.message) {
-                return isRejectedWithValue(e.response.data.message)
+                return rejectWithValue(e.response.data.message)
               } else {
-                return isRejectedWithValue(e.message)
+                return rejectWithValue(e.message)
               }
         }
     }

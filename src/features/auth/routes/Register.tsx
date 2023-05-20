@@ -12,6 +12,8 @@ import { Button, Text } from '@mantine/core';
 // import { useRegisterMutation } from '../../redux/features/auth/authApiSlice';
 import AuthLayout from '../components/Layout';
 import FormInput from '../../../components/Form/Inputs/FormInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../api/register';
 
 export const registerSchema = z
 	.object({
@@ -20,6 +22,7 @@ export const registerSchema = z
 		email: z.string().email(),
 		password: z.string().min(6).max(50),
 		confirmPassword: z.string().min(6).max(50),
+		role: z.enum(['Landlord', 'Tenant', 'PropertyManager']),
 	})
 	.refine((data) => data.password === data.confirmPassword, {
 		message: 'Passwords do not match',
@@ -34,6 +37,13 @@ const Register = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
+	const [role, setRole] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
+	
+
+	const { loading, userInfo, error, success } = useSelector((state: any) => state.auth)
+
+	const dispatch = useDispatch()
 
 	// const [register, { isLoading }] = useRegisterMutation();
 
@@ -45,19 +55,37 @@ const Register = () => {
 
 	const handleSubmit = async (e: any) => {
 		e.preventDefault();
-
-		// const res = await register({
-		// 	firstName,
-		// 	lastName,
-		// 	email,
-		// 	password,
-		// }).unwrap();
-
-		// console.log(res);
-
-		toast.success('Registration successfull');
-		navigate('/login');
+		
+		try {
+			const data = {
+				first_name: firstName,
+				last_name: lastName,
+				email: email.toLowerCase(),
+				password,
+				role,
+			}
+	
+			dispatch(registerUser(data))
+			
+			console.log(data)
+	
+			
+			toast.success('Registration successfull');
+			navigate('/login');
+		} catch (error) {
+			toast.error(error.message);
+		}
 	};
+
+	useEffect(() => {
+		if (isLoading) {
+			toast.info('Loading...');
+		}
+
+		return () => {
+			setIsLoading(false);
+		}
+	}, []);
 
 	return (
 		<AuthLayout>
@@ -108,12 +136,65 @@ const Register = () => {
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 					/>
+					<label
+							htmlFor="role"
+							className="block text-gray-700 font-bold mb-2">
+							Service
+						</label>
+						<div className="flex space-x-4">
+							<div className="flex items-center">
+								<input
+									id="landlord"
+									type="radio"
+									value="Landlord"
+									checked={role === "Landlord"}
+									onChange={() => setRole("Landlord")}
+									className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+								/>
+								<label
+									htmlFor="LandLord"
+									className="ml-2 block text-gray-700 font-bold mb-2">
+									Landlord
+								</label>
+							</div>
+							<div className="flex items-center">
+								<input
+									id="tenant"
+									type="radio"
+									value="Tenant"
+									checked={role === "Tenant"}
+									onChange={() => setRole("Tenant")}
+									className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+								/>
+								<label
+									htmlFor="tenant"
+									className="ml-2 block text-gray-700 font-bold mb-2">
+									Tenant
+								</label>
+							</div>
+							<div className="flex items-center">
+								<input
+									id="property manager"
+									type="radio"
+									value="PropertyManager"
+									checked={role === "PropertyManager"}
+									onChange={() => setRole("PropertyManager")}
+									className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+								/>
+								<label
+									htmlFor="property manager"
+									className="ml-2 block text-gray-700 font-bold mb-2">
+									Property Manager
+								</label>
+							</div>
+						</div>
+						
 					<div className="flex justify-between items-center">
 						<Button
 							variant="default"
 							className="bg-primary text-white"
 							type="submit"
-							// loading={isLoading}
+							loading={loading}
               >
 							Register
 						</Button>
