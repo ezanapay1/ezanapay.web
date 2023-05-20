@@ -5,8 +5,7 @@ import { API_URL } from '../../../config';
 const backendUrl = `${API_URL}`;
 
 type UserProp = {
-    first_name: string;
-    last_name: string;
+    name: string;
     email: string;
     password: string;
     role: string;
@@ -14,7 +13,7 @@ type UserProp = {
 
 export const registerUser = createAsyncThunk(
     'auth/register',
-    async ({first_name, last_name, email, password, role}: UserProp, {rejectWithValue}) => {
+    async ({name, email, password, role}: UserProp, {rejectWithValue}) => {
         try {
             const config = {
                 headers: {
@@ -23,8 +22,7 @@ export const registerUser = createAsyncThunk(
             }
 
             await axios.post(`${backendUrl}/auth/register`, {
-                first_name,
-                last_name,
+                name,
                 email,
                 password,
                 role

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { router } from './routes'
 import { AuthProvider } from 'react-auth-kit'
 import store from './store'
+import { ToastContainer } from 'react-toastify'
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       cookieSecure={false}
     >
     <RouterProvider router={router} />
+    <ToastContainer />
     </AuthProvider>
     </Provider>
   </React.StrictMode>,

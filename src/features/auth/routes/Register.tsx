@@ -58,14 +58,13 @@ const Register = () => {
 		
 		try {
 			const data = {
-				first_name: firstName,
-				last_name: lastName,
+				name: `${firstName} ${lastName}`,
 				email: email.toLowerCase(),
 				password,
 				role,
 			}
 	
-			dispatch(registerUser(data))
+			await dispatch(registerUser(data))
 			
 			console.log(data)
 	
