@@ -8,7 +8,13 @@ import { toast } from 'react-toastify';
 import { useSignIn } from 'react-auth-kit';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogin } from '../api/login';
+import { AnyAction } from '@reduxjs/toolkit';
 
+
+type LoginData = {
+	email: string
+	password: string
+}
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -36,14 +42,14 @@ const LoginForm = () => {
   const handleSubmit = async (e: any) => {
 		// e.preventDefault();
 
-		const data = {
+		const data: LoginData = {
 			email: form.values.email,
 			password: form.values.password,
 		}
 
 		try {
-			await dispatch(userLogin(data))
-
+			await dispatch(userLogin(data) as unknown as AnyAction)
+			
 			toast.success('Login successful');
 			navigate('/dashboard');
 		} catch (error: any) {

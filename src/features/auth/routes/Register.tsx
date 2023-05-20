@@ -14,6 +14,7 @@ import AuthLayout from '../components/Layout';
 import FormInput from '../../../components/Form/Inputs/FormInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserProp, registerUser } from '../api/register';
+import { AnyAction } from '@reduxjs/toolkit';
 
 export const registerSchema = z
 	.object({
@@ -64,7 +65,7 @@ const Register = () => {
 				role,
 			}
 	
-			await dispatch(registerUser(data))	
+			await dispatch(registerUser(data) as unknown as AnyAction)	
 			
 			toast.success('Registration successfull');
 			navigate('/login');
