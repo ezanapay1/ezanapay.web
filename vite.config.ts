@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import {API_URL} from "@/src/config"
+import {API_URL} from "./src/config"
 // import { dependencies } from "./package.json";
 
 // function renderChunks(deps: Record<string, string>) {
@@ -18,11 +18,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": {
-        target: `${API_URL}`,
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
+      "/api": `https://ezanapay-api.onrender.com`
     },
   },
   // build: {

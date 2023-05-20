@@ -33,7 +33,7 @@ const LoginForm = () => {
 	});
 
   const handleSubmit = async () => {
-		const user = await axios.post(`${API_URL}/api/user/login`, {
+		const user = await axios.post(`${API_URL}/auth/login`, {
         email: form.values?.email,
         password: form.values?.password,
       })
