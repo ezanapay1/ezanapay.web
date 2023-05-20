@@ -6,13 +6,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from '@mantine/form';
 import { toast } from 'react-toastify';
 import { useSignIn } from 'react-auth-kit';
-import axios from 'axios';
-import { API_URL } from '../../../config/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { userLogin } from '../api/login';
 
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const signIn = useSignIn();
+  const { loading, error } = useSelector((state: any) => state.auth)
+  const dispatch = useDispatch()
 
   const form = useForm({
 		initialValues: {
@@ -32,38 +33,22 @@ const LoginForm = () => {
 		},
 	});
 
-  const handleSubmit = async () => {
-		const user = await axios.post(`${API_URL}/auth/login`, {
-        email: form.values?.email,
-        password: form.values?.password,
-      })
-      .then((res) => {
-        // console.log(res.data.accessToken)
-        if (signIn({
-          token: res.data.accessToken,
-          tokenType: '',
-          expiresIn: 0,
-          authState: res.data.user,
-        })) {
-          toast.success('Login successful');
-          navigate('/dashboard');
-        }
-        })
-      .catch((err) => {
-        console.log(err)
-      })
+  const handleSubmit = async (e: any) => {
+		// e.preventDefault();
 
-      user 
+		const data = {
+			email: form.values.email,
+			password: form.values.password,
+		}
 
-		// try {
-		// 	// e.preventDefault()
-      
-			
-		// 	// toast.success('Login successful');
-		// 	// navigate('/dashboard');
-		// } catch (error: any) {
-		// 	toast.error(error.message);
-		// }
+		try {
+			await dispatch(userLogin(data))
+
+			toast.success('Login successful');
+			navigate('/dashboard');
+		} catch (error: any) {
+			toast.error(error.message);
+		}
 	};
 
   return (
@@ -91,7 +76,7 @@ const LoginForm = () => {
 							variant="default"
 							className="bg-primary text-white"
 							type="submit"
-							// loading={isLoading}
+							loading={loading}
               >
 							Login
 						</Button>

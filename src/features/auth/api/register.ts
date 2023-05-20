@@ -4,7 +4,7 @@ import { API_URL } from '../../../config';
 
 const backendUrl = `${API_URL}`;
 
-type UserProp = {
+export type UserProp = {
     name: string;
     email: string;
     password: string;

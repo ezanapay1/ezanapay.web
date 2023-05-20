@@ -8,8 +8,6 @@ type UserLayoutProps = {
 };
 
 const UserLayout = ({ children }: UserLayoutProps) => {
-    const isAuthenticated = useIsAuthenticated();
-
 
 
     const navigate = useNavigate();
@@ -21,12 +19,10 @@ const UserLayout = ({ children }: UserLayoutProps) => {
     // }, [isAuthenticated, navigate])
 
 	return (
-        <RequireAuth loginPath='/login'>
-		<div className="flex">
+        <div className="flex">
 			<SideBar />
 			<div className="flex-1 p-10">{children}</div>
 		</div>
-        </RequireAuth>
 	);
 };
 

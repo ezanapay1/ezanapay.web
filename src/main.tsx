@@ -9,20 +9,13 @@ import { router } from './routes'
 import { AuthProvider } from 'react-auth-kit'
 import store from './store'
 import { ToastContainer } from 'react-toastify'
-
+import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-    <AuthProvider 
-      authType="cookie"
-      authName="_auth"
-      cookieDomain="localhost"
-      cookieSecure={false}
-    >
     <RouterProvider router={router} />
     <ToastContainer />
-    </AuthProvider>
     </Provider>
   </React.StrictMode>,
 )

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { registerUser } from "./api/register";
+import { userLogin } from "./api/login";
 
 const initialState = {
     loading: false,
@@ -25,7 +26,20 @@ const authSlice = createSlice({
         [registerUser.rejected.type]: (state, action) => {
             state.loading = false;
             state.error = action.payload;
-        }
+        },
+        [userLogin.pending.type]: (state, action) => {
+            state.loading = true;
+            state.error = null;
+        },
+        [userLogin.fulfilled.type]: (state, action) => {
+            state.loading = false;
+            // state.userInfo = action.payload;
+            state.userToken = action.payload.userToken;
+        },
+        [userLogin.rejected.type]: (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+        },
     },
 });
 

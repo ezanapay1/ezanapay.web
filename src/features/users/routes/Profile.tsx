@@ -10,9 +10,9 @@ import UserLayout from '../components/Layout';
 import { useAuthUser, useSignOut } from 'react-auth-kit';
 
 const UserProfile = () => {
-    const user = useAuthUser()
+    // const user = useAuthUser()
 
-    console.log(user())
+    // console.log(user())
 
 	return (
 		<UserLayout>
@@ -28,13 +28,13 @@ const UserProfile = () => {
 								<div className="flex space-x-2 items-center">
 									<IdentificationIcon className="h-6 text-primary/80" />
 									<span className="text-sm font-semibold">
-										{user()?.id}
+										{/* {user()?.id} */}
 									</span>
 								</div>
 								<div className="flex space-x-2 items-center">
 									<UserPlusIcon className="h-6 text-primary/80" />
 									<span className="text-sm font-semibold">
-										{user()?.firstName} {user()?.lastName}
+										{/* {user()?.firstName} {user()?.lastName} */}
 									</span>
 								</div>
 								<div className="flex space-x-2 items-center">
@@ -46,7 +46,7 @@ const UserProfile = () => {
 								<div className="flex space-x-2 items-center">
 									<EnvelopeIcon className="h-6 text-primary/80" />
 									<span className="text-sm font-semibold">
-										{user()?.email}
+										{/* {user()?.email} */}
 									</span>
 								</div>
 								{/* <div className="flex space-x-2 items-center">

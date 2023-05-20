@@ -3,7 +3,7 @@ import { useAuthUser } from 'react-auth-kit'
 import UserLayout from '../components/Layout';
 
 const Dashboard = () => {
-    const auth = useAuthUser();
+    // const auth = useAuthUser();
 
   return (
     <UserLayout>

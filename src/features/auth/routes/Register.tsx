@@ -13,7 +13,7 @@ import { Button, Text } from '@mantine/core';
 import AuthLayout from '../components/Layout';
 import FormInput from '../../../components/Form/Inputs/FormInput';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../api/register';
+import { UserProp, registerUser } from '../api/register';
 
 export const registerSchema = z
 	.object({
@@ -57,21 +57,18 @@ const Register = () => {
 		e.preventDefault();
 		
 		try {
-			const data = {
+			const data: UserProp = {
 				name: `${firstName} ${lastName}`,
 				email: email.toLowerCase(),
 				password,
 				role,
 			}
 	
-			await dispatch(registerUser(data))
-			
-			console.log(data)
-	
+			await dispatch(registerUser(data))	
 			
 			toast.success('Registration successfull');
 			navigate('/login');
-		} catch (error) {
+		} catch (error: any) {
 			toast.error(error.message);
 		}
 	};

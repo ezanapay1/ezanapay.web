@@ -11,7 +11,7 @@ import { useSignOut } from 'react-auth-kit';
 import { Link } from 'react-router-dom';
 
 const SideBar = () => {
-    const signOut = useSignOut()
+    // const signOut = useSignOut()
 
 	return (
 		<div className="p-10">
@@ -39,7 +39,7 @@ const SideBar = () => {
 					</li>
 				</ul>
 
-				<div className="flex items-center justify-center space-x-1 cursor-pointer" onClick={() => signOut()}>
+				<div className="flex items-center justify-center space-x-1 cursor-pointer" onClick={() => {}}>
 					<ArrowRightOnRectangleIcon className="h-6 text-primary/80" />
 					<span className="text-gray-700 font-light tracking-wide">
 						Logout
