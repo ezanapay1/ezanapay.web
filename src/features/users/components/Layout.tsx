@@ -20,7 +20,7 @@ const UserLayout = ({ children }: UserLayoutProps) => {
 
 	return (
         <div className="flex">
-			<SideBar />
+			{/* <SideBar /> */}
 			<div className="flex-1 p-10">{children}</div>
 		</div>
 	);
